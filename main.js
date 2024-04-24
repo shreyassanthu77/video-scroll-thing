@@ -10,9 +10,11 @@ const h1 = document.querySelector("h1");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 /** @type {CanvasRenderingContext2D} */
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d", {
+  willReadFrequently: true,
+});
 
-const playRate = 200;
+const playRate = 500;
 video.addEventListener("loadedmetadata", () => {
   const duration = video.duration;
   main.style.height = `${Math.floor(duration) * playRate}px`;
